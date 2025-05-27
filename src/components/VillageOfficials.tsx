@@ -8,6 +8,8 @@ interface Official {
   position: string;
   division?: string;
   image: string;
+  description?: string;
+  duties?: string[];
 }
 
 const officials: Official[] = [
@@ -15,83 +17,65 @@ const officials: Official[] = [
     id: 1,
     name: 'Bapak Suparman',
     position: 'Kepala Desa',
-    image: 'https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    image: 'https://images.pexels.com/photos/5439455/pexels-photo-5439455.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    description: 'Memimpin penyelenggaraan Pemerintahan Desa',
+    duties: [
+      'Memegang kekuasaan pengelolaan Keuangan dan Aset Desa',
+      'Menetapkan Peraturan Desa',
+      'Membina kehidupan masyarakat Desa'
+    ]
   },
   {
     id: 2,
     name: 'Ibu Suryani',
     position: 'Sekretaris Desa',
-    image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    division: 'Sekretariat Desa',
+    image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    description: 'Membantu Kepala Desa dalam administrasi pemerintahan',
+    duties: [
+      'Melaksanakan urusan ketatausahaan',
+      'Melaksanakan urusan umum',
+      'Melaksanakan urusan keuangan'
+    ]
   },
   {
     id: 3,
     name: 'Bapak Ahmad',
     position: 'Kepala Seksi Pemerintahan',
     division: 'Pelaksana Teknis',
-    image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    description: 'Melaksanakan manajemen tata pemerintahan',
+    duties: [
+      'Menyusun rancangan regulasi Desa',
+      'Pembinaan masalah pertanahan',
+      'Pembinaan ketentraman dan ketertiban'
+    ]
   },
   {
     id: 4,
     name: 'Ibu Siti',
     position: 'Kepala Seksi Kesejahteraan',
     division: 'Pelaksana Teknis',
-    image: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    image: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    description: 'Melaksanakan pembangunan sarana prasarana dan kesejahteraan',
+    duties: [
+      'Melaksanakan program pembangunan',
+      'Melaksanakan pembinaan kesehatan',
+      'Melaksanakan pembinaan pendidikan'
+    ]
   },
   {
     id: 5,
     name: 'Bapak Rahmat',
     position: 'Kepala Seksi Pelayanan',
     division: 'Pelaksana Teknis',
-    image: 'https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-  },
-  {
-    id: 6,
-    name: 'Ibu Rina',
-    position: 'Kaur Umum',
-    division: 'Sekretariat Desa',
-    image: 'https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-  },
-  {
-    id: 7,
-    name: 'Bapak Dedi',
-    position: 'Kaur Keuangan',
-    division: 'Sekretariat Desa',
-    image: 'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-  },
-  {
-    id: 8,
-    name: 'Ibu Maya',
-    position: 'Kaur Perencanaan',
-    division: 'Sekretariat Desa',
-    image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-  },
-  {
-    id: 9,
-    name: 'Ibu Maya',
-    position: 'Staff Kaur Keuangan',
-    division: 'Sekretariat Desa',
-    image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-  },
-  {
-    id: 10,
-    name: 'Ibu Maya',
-    position: 'Kepala Wilayah Dusun I',
-    division: 'Kepala Wilayah',
-    image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-  },
-  {
-    id: 11,
-    name: 'Ibu Maya',
-    position: 'Kepala Wilayah Dusun II',
-    division: 'Kepala Wilayah',
-    image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-  },
-  {
-    id: 12,
-    name: 'Ibu Maya',
-    position: 'Kepala Wilayah Dusun III',
-    division: 'Kepala Wilayah',
-    image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    image: 'https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    description: 'Melaksanakan penyuluhan dan motivasi masyarakat',
+    duties: [
+      'Melaksanakan pelayanan masyarakat',
+      'Melaksanakan pembinaan kemasyarakatan',
+      'Melaksanakan pemberdayaan masyarakat'
+    ]
   }
 ];
 
@@ -118,6 +102,46 @@ const OfficialCard: React.FC<{ official: Official }> = ({ official }) => (
   </div>
 );
 
+const MobileOfficialCard: React.FC<{ official: Official }> = ({ official }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.3 }}
+    viewport={{ once: true }}
+    className="bg-white rounded-xl shadow-sm overflow-hidden"
+  >
+    <div className="md:flex">
+      <div className="md:w-1/3 relative">
+        <img
+          src={official.image}
+          alt={official.name}
+          className="w-full h-48 md:h-full object-cover"
+        />
+        {official.division && (
+          <div className="absolute top-4 left-4 bg-primary-600 text-white text-xs px-3 py-1 rounded-full">
+            {official.division}
+          </div>
+        )}
+      </div>
+      <div className="p-6 md:w-2/3">
+        <h3 className="text-xl font-bold mb-1">{official.name}</h3>
+        <p className="text-primary-600 font-medium mb-4">{official.position}</p>
+        <p className="text-gray-600 mb-4">{official.description}</p>
+        {official.duties && (
+          <div>
+            <h4 className="font-medium mb-2">Tugas Pokok:</h4>
+            <ul className="list-disc list-inside text-gray-600 space-y-1">
+              {official.duties.map((duty, index) => (
+                <li key={index}>{duty}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+    </div>
+  </motion.div>
+);
+
 const VillageOfficials: React.FC = () => {
   return (
     <section className="section bg-gray-50">
@@ -127,7 +151,7 @@ const VillageOfficials: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="text-center mb-8"
+          className="text-center mb-12"
         >
           <h2 className="section-title">Struktur Pemerintahan Desa</h2>
           <p className="text-gray-600 max-w-3xl mx-auto">
@@ -135,46 +159,33 @@ const VillageOfficials: React.FC = () => {
           </p>
         </motion.div>
 
-        <div className="flex justify-center pb-4 mx-auto">
-          <div className="min-w-fit p-4 mx-auto">
-            <Tree
-              lineWidth="1px"
-              lineStyle="solid"
-              lineColor="rgb(35 116 65)"
-              // lineBorderRadius="12px"
-              label={<OfficialCard official={officials[0]} />}
-            >
-              {/* Pelaksana Teknis */}
-              <TreeNode label={<OfficialCard official={officials[2]} />} />
-              <TreeNode label={<OfficialCard official={officials[3]} />} />
-              <TreeNode label={<OfficialCard official={officials[4]} />} />
+        {/* Desktop Organization Chart */}
+        <div className="hidden lg:block">
+          <div className="flex justify-center pb-4 mx-auto">
+            <div className="min-w-fit p-4 mx-auto">
+              <Tree
+                lineWidth="1px"
+                lineStyle="solid"
+                lineColor="rgb(35 116 65)"
+                label={<OfficialCard official={officials[0]} />}
+              >
+                {/* Pelaksana Teknis */}
+                <TreeNode label={<OfficialCard official={officials[2]} />} />
+                <TreeNode label={<OfficialCard official={officials[3]} />} />
+                <TreeNode label={<OfficialCard official={officials[4]} />} />
 
-              {/* Wilayah Dusun */}
-              <TreeNode label=''>
-                <Tree
-                  lineWidth="1px"
-                  lineStyle="solid"
-                  lineColor="rgb(35 116 65)"
-                  // lineBorderRadius="12px"
-                  lineHeight="80px"
-                  label=''
-                >
-                  <TreeNode label={<OfficialCard official={officials[9]} />} />
-                  <TreeNode label={<OfficialCard official={officials[10]} />} />
-                  <TreeNode label={<OfficialCard official={officials[11]} />} />
-                </Tree>
-              </TreeNode>
-
-              {/* Sekretaris Desa */}
-              <TreeNode label={<OfficialCard official={officials[1]} />}>
-                <TreeNode label={<OfficialCard official={officials[5]} />} />
-                <TreeNode label={<OfficialCard official={officials[6]} />}>
-                  <TreeNode label={<OfficialCard official={officials[8]} />} />
-                </TreeNode>
-                <TreeNode label={<OfficialCard official={officials[7]} />} />
-              </TreeNode>
-            </Tree>
+                {/* Sekretaris Desa */}
+                <TreeNode label={<OfficialCard official={officials[1]} />} />
+              </Tree>
+            </div>
           </div>
+        </div>
+
+        {/* Mobile Organization List */}
+        <div className="lg:hidden space-y-6">
+          {officials.map((official) => (
+            <MobileOfficialCard key={official.id} official={official} />
+          ))}
         </div>
       </div>
     </section>
