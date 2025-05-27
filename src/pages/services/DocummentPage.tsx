@@ -11,6 +11,7 @@ import {
   Home,
   Users,
   Folder,
+  X
 } from 'lucide-react';
 import PageHeader from '../../components/ui/PageHeader';
 import { documentServicesData } from '../../data/docummentData';
@@ -39,16 +40,12 @@ const DocumentServicesPage: React.FC = () => {
   });
 
   const handleDownload = (url: string) => {
-    const link = document.createElement('a');
-    link.href = url;
-    link.target = '_blank';
-    link.rel = 'noopener noreferrer';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    window.open(url, '_blank');
   };
 
-  console.log(previewUrl)
+  const handlePreview = (url: string) => {
+    setPreviewUrl(url);
+  };
 
   return (
     <div>
@@ -173,7 +170,7 @@ const DocumentServicesPage: React.FC = () => {
                         <div className="flex flex-wrap gap-4">
                           {service.pdfUrl && (
                             <button
-                              onClick={() => setPreviewUrl(service.pdfUrl!)}
+                              onClick={() => handlePreview(service.pdfUrl!)}
                               className="inline-flex items-center px-4 py-2 bg-primary-50 text-primary-600 rounded-lg hover:bg-primary-100 transition-colors"
                             >
                               <Eye size={16} className="mr-2" />
@@ -195,28 +192,34 @@ const DocumentServicesPage: React.FC = () => {
                   </AnimatePresence>
                 </motion.div>
               ))}
-              {/* ✅ PDF Viewer */}
-              {previewUrl && (
-                <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50">
-                  <div className="bg-white rounded-lg shadow-lg overflow-hidden w-full max-w-4xl h-[90%] relative">
-                    <button
-                      onClick={() => setPreviewUrl(null)}
-                      className="absolute top-2 right-2 bg-red-500 text-white p-1 px-3 rounded-md"
-                    >
-                      Tutup
-                    </button>
-                    <iframe
-                      src={previewUrl}
-                      className="w-full h-full"
-                      title="Contoh Surat"
-                    />
-                  </div>
-                </div>
-              )}
             </div>
           )}
         </div>
       </section>
+
+      {/* PDF Preview Modal */}
+      {previewUrl && (
+        <div className="fixed inset-0 z-50 bg-black bg-opacity-75 flex items-center justify-center p-4">
+          <div className="bg-white rounded-lg w-full max-w-4xl h-[80vh] flex flex-col relative">
+            <div className="flex items-center justify-between p-4 border-b">
+              <h3 className="text-lg font-semibold">Preview Dokumen</h3>
+              <button
+                onClick={() => setPreviewUrl(null)}
+                className="text-gray-500 hover:text-gray-700"
+              >
+                <X size={24} />
+              </button>
+            </div>
+            <div className="flex-1 relative">
+              <iframe
+                src={previewUrl}
+                className="absolute inset-0 w-full h-full"
+                title="Document Preview"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
