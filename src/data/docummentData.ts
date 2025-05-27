@@ -15,8 +15,7 @@ export const documentServicesData: DocumentService[] = [
     description: 'Dokumen Rencana Pembangunan Jangka Menengah Desa (RPJMDes) Sindangjaya 2022 - 2027',
     fileSize: '21 mb',
     category: 'other',
-    // pdfUrl: '/documents/RPJMDes-Sindangjaya.pdf',
-    pdfUrl: '/home/project/src/assets/documents/RPJMDes Sindangjaya.pdf',
-    formUrl: '/documents/RPJMDes-Sindangjaya.pdf'
+    pdfUrl: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
+    formUrl: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
   }
 ];

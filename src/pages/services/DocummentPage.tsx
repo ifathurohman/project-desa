@@ -40,12 +40,7 @@ const DocumentServicesPage: React.FC = () => {
   });
 
   const handleDownload = (url: string) => {
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = url.split('/').pop() || 'document.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    window.open(url, '_blank');
   };
 
   const handlePreview = (url: string) => {
@@ -217,11 +212,13 @@ const DocumentServicesPage: React.FC = () => {
               </button>
             </div>
             <div className="flex-1 relative">
-              <embed
-                src={previewUrl}
+              <object
+                data={previewUrl}
                 type="application/pdf"
                 className="absolute inset-0 w-full h-full"
-              />
+              >
+                <p>Your browser does not support PDFs. Please download the PDF to view it.</p>
+              </object>
             </div>
           </div>
         </div>
