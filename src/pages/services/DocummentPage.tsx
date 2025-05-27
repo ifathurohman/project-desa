@@ -149,7 +149,7 @@ const DocumentServicesPage: React.FC = () => {
                     </div>
                   </div>
 
-                  <AnimatePresence initial={false}>
+                  <AnimatePresence>
                     {expandedItem === service.id && (
                       <motion.div
                         key="expand"
@@ -212,13 +212,11 @@ const DocumentServicesPage: React.FC = () => {
               </button>
             </div>
             <div className="flex-1 relative">
-              <object
-                data={previewUrl}
+              <embed
+                src={previewUrl}
                 type="application/pdf"
                 className="absolute inset-0 w-full h-full"
-              >
-                <p>Your browser does not support PDFs. Please download the PDF to view it.</p>
-              </object>
+              />
             </div>
           </div>
         </div>
