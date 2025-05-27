@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Tree, TreeNode } from 'react-organizational-chart';
+import { Phone, Mail, MapPin } from 'lucide-react';
 
 interface Official {
   id: number;
@@ -8,6 +9,9 @@ interface Official {
   position: string;
   division?: string;
   image: string;
+  contact?: string;
+  email?: string;
+  address?: string;
 }
 
 const officials: Official[] = [
@@ -15,83 +19,119 @@ const officials: Official[] = [
     id: 1,
     name: 'Bapak Suparman',
     position: 'Kepala Desa',
-    image: 'https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    image: 'https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    contact: '081234567890',
+    email: 'kades@desakersik.desa.id',
+    address: 'Dusun I RT 01/RW 01'
   },
   {
     id: 2,
     name: 'Ibu Suryani',
     position: 'Sekretaris Desa',
-    image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    contact: '081234567891',
+    email: 'sekdes@desakersik.desa.id',
+    address: 'Dusun II RT 03/RW 02'
   },
   {
     id: 3,
     name: 'Bapak Ahmad',
     position: 'Kepala Seksi Pemerintahan',
     division: 'Pelaksana Teknis',
-    image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    contact: '081234567892',
+    email: 'pemerintahan@desakersik.desa.id',
+    address: 'Dusun I RT 02/RW 01'
   },
   {
     id: 4,
     name: 'Ibu Siti',
     position: 'Kepala Seksi Kesejahteraan',
     division: 'Pelaksana Teknis',
-    image: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    image: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    contact: '081234567893',
+    email: 'kesra@desakersik.desa.id',
+    address: 'Dusun III RT 01/RW 03'
   },
   {
     id: 5,
     name: 'Bapak Rahmat',
     position: 'Kepala Seksi Pelayanan',
     division: 'Pelaksana Teknis',
-    image: 'https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    image: 'https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    contact: '081234567894',
+    email: 'pelayanan@desakersik.desa.id',
+    address: 'Dusun II RT 02/RW 02'
   },
   {
     id: 6,
     name: 'Ibu Rina',
     position: 'Kaur Umum',
     division: 'Sekretariat Desa',
-    image: 'https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    image: 'https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    contact: '081234567895',
+    email: 'umum@desakersik.desa.id',
+    address: 'Dusun I RT 03/RW 01'
   },
   {
     id: 7,
     name: 'Bapak Dedi',
     position: 'Kaur Keuangan',
     division: 'Sekretariat Desa',
-    image: 'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    image: 'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    contact: '081234567896',
+    email: 'keuangan@desakersik.desa.id',
+    address: 'Dusun III RT 02/RW 03'
   },
   {
     id: 8,
     name: 'Ibu Maya',
     position: 'Kaur Perencanaan',
     division: 'Sekretariat Desa',
-    image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    contact: '081234567897',
+    email: 'perencanaan@desakersik.desa.id',
+    address: 'Dusun II RT 01/RW 02'
   },
   {
     id: 9,
     name: 'Ibu Maya',
     position: 'Staff Kaur Keuangan',
     division: 'Sekretariat Desa',
-    image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    contact: '081234567898',
+    email: 'staff.keuangan@desakersik.desa.id',
+    address: 'Dusun I RT 04/RW 01'
   },
   {
     id: 10,
     name: 'Ibu Maya',
     position: 'Kepala Wilayah Dusun I',
     division: 'Kepala Wilayah',
-    image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    contact: '081234567899',
+    email: 'kadus1@desakersik.desa.id',
+    address: 'Dusun I RT 01/RW 01'
   },
   {
     id: 11,
     name: 'Ibu Maya',
     position: 'Kepala Wilayah Dusun II',
     division: 'Kepala Wilayah',
-    image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    contact: '081234567800',
+    email: 'kadus2@desakersik.desa.id',
+    address: 'Dusun II RT 01/RW 02'
   },
   {
     id: 12,
     name: 'Ibu Maya',
     position: 'Kepala Wilayah Dusun III',
     division: 'Kepala Wilayah',
-    image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    contact: '081234567801',
+    email: 'kadus3@desakersik.desa.id',
+    address: 'Dusun III RT 01/RW 03'
   }
 ];
 
@@ -174,6 +214,76 @@ const VillageOfficials: React.FC = () => {
             </Tree>
           </div>
         </div>
+
+        {/* Table List */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="mt-16"
+        >
+          <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr className="bg-primary-50">
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-primary-900">Nama</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-primary-900">Jabatan</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-primary-900">Divisi</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-primary-900">Kontak</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-200">
+                  {officials.map((official) => (
+                    <tr key={official.id} className="hover:bg-gray-50 transition-colors">
+                      <td className="px-4 py-3">
+                        <div className="flex items-center">
+                          <img
+                            src={official.image}
+                            alt={official.name}
+                            className="w-8 h-8 rounded-full object-cover mr-3"
+                          />
+                          <span className="font-medium">{official.name}</span>
+                        </div>
+                      </td>
+                      <td className="px-4 py-3 text-sm">{official.position}</td>
+                      <td className="px-4 py-3">
+                        {official.division && (
+                          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800">
+                            {official.division}
+                          </span>
+                        )}
+                      </td>
+                      <td className="px-4 py-3">
+                        <div className="flex flex-col space-y-1">
+                          {official.contact && (
+                            <a href={`tel:${official.contact}`} className="flex items-center text-sm text-gray-600 hover:text-primary-600">
+                              <Phone size={14} className="mr-1" />
+                              {official.contact}
+                            </a>
+                          )}
+                          {official.email && (
+                            <a href={`mailto:${official.email}`} className="flex items-center text-sm text-gray-600 hover:text-primary-600">
+                              <Mail size={14} className="mr-1" />
+                              {official.email}
+                            </a>
+                          )}
+                          {official.address && (
+                            <div className="flex items-center text-sm text-gray-600">
+                              <MapPin size={14} className="mr-1" />
+                              {official.address}
+                            </div>
+                          )}
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
