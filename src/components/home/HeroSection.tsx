@@ -23,7 +23,7 @@ const HeroSection: React.FC = () => {
           className="w-full h-full object-cover"
         >
           <source
-            src="https://www.w3schools.com/html/mov_bbb.mp4"
+            src="https://res.cloudinary.com/dzc0bij0o/video/upload/v1748440790/moy1fti66w8i5lugdc3h.mp4"
             type="video/mp4"
           />
           Your browser does not support the video tag.
