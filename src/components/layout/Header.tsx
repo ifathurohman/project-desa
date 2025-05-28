@@ -288,7 +288,7 @@ const Header: React.FC = () => {
     >
       <div className="container flex items-center justify-between py-4">
         <Link to="/" className="flex items-center space-x-2">
-          <img src="/src/assets/images/logo.svg" alt="Logo Desa Kersik" className="w-10 h-10" />
+          <img src="/assets/images/logo.svg" alt="Logo Desa Kersik" className="w-10 h-10" />
           <div>
             <h1 className={`text-lg font-bold ${isScrolled ? 'text-primary-700' : 'text-white'} transition-colors duration-300`}>
               Desa Kersik
