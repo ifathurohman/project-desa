@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import PageHeader from '../components/ui/PageHeader';
-import { Target, TrendingUp, Users, Heart, BookOpen, Droplets, Zap, Building2, Factory, ArrowDown, Scale, Citrus as City, Leaf, Waves, Fish, Trees as Tree, Shield, Handshake as HandShake, Signal } from 'lucide-react';
+import { Target, TrendingUp, Users, Heart, BookOpen, Droplets, Zap, Building2, Factory, ArrowDown, Scale, Citrus as City, Leaf, Waves, Fish, Trees as Tree, Shield, Handshake as HandShake, Signal, CheckCircle, AlertTriangle } from 'lucide-react';
 
 interface SDGGoal {
   id: number;
