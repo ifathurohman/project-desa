@@ -47,6 +47,11 @@ const navLinks: MenuItem[] = [
     ]
   },
   { 
+    name: 'SDGs Desa',
+    path: '/sdgs',
+    description: 'Sustainable Development Goals Desa Sindangjaya'
+  },
+  { 
     name: 'Layanan',
     children: [
       { 

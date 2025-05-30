@@ -14,6 +14,7 @@ import GalleryPage from './pages/GalleryPage';
 import NewsPage from './pages/NewsPage';
 import NewsDetailPage from './pages/NewsDetailPage';
 import NotFoundPage from './pages/NotFoundPage';
+import SDGsPage from './pages/SDGsPage';
 
 import Organization from './pages/profile/OrganizationPage';
 import Area from './pages/profile/AreaPage';
@@ -41,9 +42,8 @@ function App() {
             <Route path="profile/officials" element={<Officials />} />
             <Route path="profile/demografi" element={<Demografi />} />
             <Route path="profile/economy" element={<Economy />} />
-
+            <Route path="sdgs" element={<SDGsPage />} />
             <Route path="services/documment" element={<Document />} />
-
             <Route path="tourism" element={<TourismPage />} />
             <Route path="products" element={<ProductsPage />} />
             <Route path="budget" element={<BudgetPage />} />
