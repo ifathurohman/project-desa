@@ -42,7 +42,7 @@ const HeroSection: React.FC = () => {
           transition={{ duration: 1.2 }}
         >
           <h1 className="text-white text-4xl md:text-6xl font-bold leading-tight drop-shadow-lg">
-            Selamat Datang di Desa Kersik
+            Selamat Datang di Desa Sindangjaya
           </h1>
           <p className="text-lg md:text-2xl mt-4 mb-8 text-white/80">
             Mewujudkan desa mandiri, sejahtera, dan berkelanjutan
