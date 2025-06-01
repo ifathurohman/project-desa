@@ -129,7 +129,7 @@ const VillageProfile: React.FC = () => {
                     viewport={{ once: true, margin: "-100px" }}
                     className="text-center mb-12"
                 >
-                    <h2 className="section-title">Profil Desa Sindangjaya</h2>
+                    <h2 className="section-title">Wilayah Desa Sindangjaya</h2>
                     <p className="text-gray-600 max-w-3xl mx-auto">
                         Desa Sindangjaya terletak di Kecamatan Gununghalu, Kabupaten Bandung Barat. Desa ini memiliki kontur geografis yang berbukit dan beriklim sejuk, menjadikannya cocok untuk pertanian dan pariwisata alam.
                     </p>

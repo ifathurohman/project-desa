@@ -23,8 +23,11 @@ import Officials from './pages/profile/OfficialsPage';
 import Demografi from './pages/profile/DemografiPage';
 import Economy from './pages/profile/EconomyPage';
 
+import SDGS from './pages/SDGsPage';
+
 // services
-import Document from './pages/services/DocummentPage';
+import DokumenRPJMDes from './pages/services/DokumenRPJMDesPage';
+import DokumenPermenATR from './pages/services/DokumenProfileDesaPage';
 
 function App() {
   return (
@@ -42,13 +45,15 @@ function App() {
             <Route path="profile/demografi" element={<Demografi />} />
             <Route path="profile/economy" element={<Economy />} />
 
-            <Route path="services/documment" element={<Document />} />
+            <Route path="services/dokumen-rpjmdes-sindangjaya" element={<DokumenRPJMDes />} />
+            <Route path="services/dokumen-profil-desa-sindangjaya" element={<DokumenPermenATR />} />
 
             <Route path="tourism" element={<TourismPage />} />
             <Route path="products" element={<ProductsPage />} />
             <Route path="budget" element={<BudgetPage />} />
             <Route path="gallery" element={<GalleryPage />} />
             <Route path="news" element={<NewsPage />} />
+            <Route path="sdgs" element={<SDGS />} />
             <Route path="news/:id" element={<NewsDetailPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Route>

@@ -152,7 +152,7 @@ const CultureSection: React.FC = () => {
               viewport={{ once: true, margin: "-100px" }}
             >
               <div 
-                className={`bg-white rounded-xl shadow-sm overflow-hidden cursor-pointer transition-all duration-300 ${
+                className={`bg-white rounded-xl shadow-sm overflow-hidden cursor-pointer transition-all duration-300 min-h-[200px] max-h-auto ${
                   selectedPractice === practice.id ? 'ring-2 ring-primary-500' : 'hover:shadow-md'
                 }`}
                 onClick={() => setSelectedPractice(selectedPractice === practice.id ? null : practice.id)}

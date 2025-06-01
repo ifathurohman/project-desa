@@ -9,7 +9,7 @@ const Area: React.FC = () => {
       <PageHeader
         title="Wilayah Desa"
         description="Informasi mengenai wilayah dan kependudukan Desa Sindangjaya"
-        image="https://images.pexels.com/photos/1001682/pexels-photo-1001682.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        image="https://images.pexels.com/photos/32345447/pexels-photo-32345447/free-photo-of-aerial-view-of-rural-czech-countryside-village.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
       />
       <VillageProfile />
       <VillageStats />

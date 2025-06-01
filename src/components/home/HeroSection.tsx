@@ -23,7 +23,7 @@ const HeroSection: React.FC = () => {
           className="w-full h-full object-cover"
         >
           <source
-            src="https://www.w3schools.com/html/mov_bbb.mp4"
+            src="https://res.cloudinary.com/dzc0bij0o/video/upload/v1748440790/moy1fti66w8i5lugdc3h.mp4"
             type="video/mp4"
           />
           Your browser does not support the video tag.
@@ -41,7 +41,7 @@ const HeroSection: React.FC = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1.2 }}
         >
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight drop-shadow-lg">
+          <h1 className="text-white text-4xl md:text-6xl font-bold leading-tight drop-shadow-lg">
             Selamat Datang di Desa Kersik
           </h1>
           <p className="text-lg md:text-2xl mt-4 mb-8 text-white/80">

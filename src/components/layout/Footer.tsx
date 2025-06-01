@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
           {/* About */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <img src="/src/assets/images/logo.svg" alt="Logo Desa Sindangjaya" className="w-10 h-10" />
+              <img src="/public/images/logo.svg" alt="Logo Desa Sindangjaya" className="w-10 h-10" />
               <h3 className="text-lg font-bold">Desa Sindangjaya</h3>
             </div>
             <p className="text-gray-300 mb-4">
@@ -28,7 +28,7 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/profile" className="text-gray-300 hover:text-primary-300 transition-colors duration-200">
+                <Link to="/profile/history" className="text-gray-300 hover:text-primary-300 transition-colors duration-200">
                   Profil Desa
                 </Link>
               </li>
@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
               </li>
               <li>
                 <Link to="/budget" className="text-gray-300 hover:text-primary-300 transition-colors duration-200">
-                  Transparansi APBDes
+                  APBDes
                 </Link>
               </li>
               <li>

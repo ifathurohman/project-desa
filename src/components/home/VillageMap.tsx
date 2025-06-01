@@ -25,7 +25,7 @@ const VillageMap: React.FC = () => {
           viewport={{ once: true, margin: '-100px' }}
         >
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31678.8802059115!2d107.19736885912606!3d-7.025734550454537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e685eb54a60622d%3A0xbaa410fbc2298484!2sSindangjaya%2C%20Kec.%20Gununghalu%2C%20Kabupaten%20Bandung%20Barat%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1747322272935!5m2!1sid!2sid"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31678.715950547987!2d107.20767860973423!3d-7.02814470433429!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f11.1!3m3!1m2!1s0x2e685eb54a60622d%3A0xbaa410fbc2298484!2sSindangjaya%2C%20Kec.%20Gununghalu%2C%20Kabupaten%20Bandung%20Barat%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1748751360455!5m2!1sid!2sid"
             width="100%"
             height="100%"
             style={{ border: 0 }}

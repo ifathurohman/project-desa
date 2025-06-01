@@ -71,7 +71,7 @@ const VisionPage: React.FC = () => {
     <div>
       <PageHeader 
         title="Visi & Misi" 
-        description="Arah dan tujuan pembangunan Desa Kersik"
+        description="Arah dan tujuan pembangunan Desa Sindangjaya"
         image="https://images.pexels.com/photos/3183183/pexels-photo-3183183.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
       />
       
@@ -85,9 +85,9 @@ const VisionPage: React.FC = () => {
               transition={{ duration: 0.5 }}
             >
               <Target size={48} className="mx-auto mb-6" />
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">Visi Desa Kersik</h2>
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-white">Visi Desa Sindangjaya</h2>
               <p className="text-xl md:text-2xl font-medium leading-relaxed">
-                "Mewujudkan Desa Kersik yang mandiri, sejahtera, dan berkelanjutan berbasis potensi lokal dan kearifan budaya"
+                "Mewujudkan Desa Sindangjaya yang mandiri, sejahtera, dan berkelanjutan berbasis potensi lokal dan kearifan budaya"
               </p>
             </motion.div>
 

@@ -1,14 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { PieChart, LineChart, Download, TrendingUp, TrendingDown, Wallet, Building2, Users, Hammer, Shield } from 'lucide-react';
+import { Download, TrendingUp, TrendingDown, Wallet, Building2, Users, Hammer, Shield, Filter } from 'lucide-react';
 import { Cell, Pie, PieChart as RechartsPieChart, ResponsiveContainer, LineChart as RechartsLineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
-
-interface BudgetCategory {
-  name: string;
-  amount: number;
-  icon: React.ElementType;
-  color: string;
-}
 
 const yearlyBudgetData = {
   2021: {
@@ -107,25 +100,6 @@ const BudgetTransparency: React.FC = () => {
 
   return (
     <div>
-      {/* Year Selection */}
-      <div className="flex justify-center mb-8">
-        <div className="inline-flex rounded-lg border border-gray-200 bg-white p-1">
-          {years.map((year) => (
-            <button
-              key={year}
-              onClick={() => setSelectedYear(year)}
-              className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-                selectedYear === year
-                  ? 'bg-primary-600 text-white'
-                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
-              }`}
-            >
-              {year}
-            </button>
-          ))}
-        </div>
-      </div>
-
       {/* Overview Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         <motion.div
@@ -201,8 +175,32 @@ const BudgetTransparency: React.FC = () => {
           transition={{ duration: 0.5 }}
           className="bg-white rounded-xl shadow-sm p-6"
         >
-          <h3 className="text-xl font-semibold mb-6">Distribusi Belanja Desa</h3>
-          <div className="h-80">
+
+          {/* Year Selection */}
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8">
+            <div>
+              <h3 className="text-2xl font-bold text-gray-900">Distribusi Belanja Desa</h3>
+              <p className="text-gray-600 text-sm mt-1">
+                Pilih tahun untuk melihat distribusi anggaran.
+              </p>
+            </div>
+
+            <div className="relative w-full max-w-[200px]">
+              <select
+                value={selectedYear}
+                onChange={(e) => setSelectedYear(Number(e.target.value))}
+                className="appearance-none w-full bg-white border border-gray-300 text-gray-800 text-sm rounded-lg px-4 py-2 pr-10 focus:outline-none focus:ring-2 focus:ring-primary-500"
+              >
+                {years.map((year) => (
+                  <option key={year} value={year}>Tahun {year}</option>
+                ))}
+              </select>
+              <Filter className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 pointer-events-none" size={18} />
+            </div>
+          </div>
+
+
+          <div className="h-96">
             <ResponsiveContainer width="100%" height="100%">
               <RechartsPieChart>
                 <Pie
@@ -213,7 +211,7 @@ const BudgetTransparency: React.FC = () => {
                   fill="#8884d8"
                   dataKey="amount"
                   nameKey="name"
-                  label={({ name, percent }) => `${name} (${(percent * 100).toFixed(1)}%)`}
+                  label={({ percent }) => `(${(percent * 100).toFixed(1)}%)`}
                 >
                   {currentData.expenses.categories.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={entry.color} />
@@ -273,9 +271,9 @@ const BudgetTransparency: React.FC = () => {
               </div>
               <p className="font-semibold text-gray-900">{formatCurrency(category.amount)}</p>
               <div className="mt-2 w-full bg-gray-200 rounded-full h-2">
-                <div 
-                  className="h-2 rounded-full" 
-                  style={{ 
+                <div
+                  className="h-2 rounded-full"
+                  style={{
                     width: `${(category.amount / currentData.expenses.total) * 100}%`,
                     backgroundColor: category.color
                   }}

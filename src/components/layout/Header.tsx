@@ -12,17 +12,17 @@ interface MenuItem {
 }
 
 const navLinks: MenuItem[] = [
-  { 
-    name: 'Beranda', 
-    path: '/' 
+  {
+    name: 'Beranda',
+    path: '/'
   },
-  { 
+  {
     name: 'Profil Desa',
     children: [
       {
         name: 'Informasi Umum',
         children: [
-          { name: 'Sejarah Desa', path: '/profile/history', description: 'Sejarah terbentuknya Desa Kersik' },
+          { name: 'Sejarah Desa', path: '/profile/history', description: 'Sejarah terbentuknya Desa Sindangjaya' },
           { name: 'Visi & Misi', path: '/profile/vision', description: 'Visi dan misi pembangunan desa' },
           { name: 'Wilayah Desa', path: '/profile/area', description: 'Informasi wilayah dan batas desa' },
           { name: 'Demografi', path: '/profile/demografi', description: 'Informasi jumlah penduduk desa' }
@@ -46,13 +46,15 @@ const navLinks: MenuItem[] = [
       }
     ]
   },
-  { 
+  {
     name: 'Layanan',
     children: [
-      { 
+      {
         name: 'Publikasi',
         children: [
-          { name: 'Dokumen RPJMDes Sindangjaya', path: '/services/documment', description: 'Dokumen Rencana Pembangunan Jangka Menengah Desa' },
+          { name: 'Dokumen RPJMDes Sindangjaya', path: '/services/dokumen-rpjmdes-sindangjaya', description: 'Dokumen Rencana Pembangunan Jangka Menengah Desa' },
+          { name: 'Dokumen Profil Desa Sindangjaya', path: '/services/dokumen-profil-desa-sindangjaya', description: 'Informasi terkait Desa Sindanjaya' },
+          { name: 'Dokumen Permen ATR/BPN Nomor 14 Tahun 2021 tentang Basis Data Garuda', path: '/services/dokumen-permen-atr-bpn-no-14-tahun-2021-basis-data-garuda', description: 'Pedoman Penyusunan Basis Data Dan Penyajian Peta Rencana Tata Ruang Wilayah Provinsi' },
         ]
       },
       { name: 'Pengaduan', path: '/services/complaints', description: 'Layanan pengaduan masyarakat' }
@@ -60,9 +62,10 @@ const navLinks: MenuItem[] = [
   },
   { name: 'Wisata', path: '/tourism' },
   { name: 'Produk Lokal', path: '/products' },
-  { name: 'Transparansi APBDes', path: '/budget' },
+  { name: 'APBDes', path: '/budget' },
   { name: 'Galeri', path: '/gallery' },
   { name: 'Berita', path: '/news' },
+  { name: 'SGDS Desa', path: '/sdgs' },
 ];
 
 const DesktopMenuItem: React.FC<{ item: MenuItem; depth?: number }> = ({ item, depth = 0 }) => {
@@ -79,14 +82,14 @@ const DesktopMenuItem: React.FC<{ item: MenuItem; depth?: number }> = ({ item, d
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const isActive = item.path === location.pathname || 
-                  (item.children?.some(child => 
-                    child.path === location.pathname || 
-                    child.children?.some(grandchild => grandchild.path === location.pathname)
-                  ));
+  const isActive = item.path === location.pathname ||
+    (item.children?.some(child =>
+      child.path === location.pathname ||
+      child.children?.some(grandchild => grandchild.path === location.pathname)
+    ));
 
   return (
-    <div 
+    <div
       className="relative"
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
@@ -95,10 +98,9 @@ const DesktopMenuItem: React.FC<{ item: MenuItem; depth?: number }> = ({ item, d
         <NavLink
           to={item.path}
           className={({ isActive }) =>
-            `flex items-center px-4 py-2 text-sm font-medium transition-colors duration-200 ${
-              isActive 
-                ? isScrolled ? 'text-primary-600' : 'text-white'
-                : isScrolled ? 'text-gray-700 hover:text-primary-600' : 'text-white/90 hover:text-white'
+            `flex items-center px-4 py-2 text-sm font-medium transition-colors duration-200 ${isActive
+              ? isScrolled ? 'text-primary-600' : 'text-white'
+              : isScrolled ? 'text-gray-700 hover:text-primary-600' : 'text-white/90 hover:text-white'
             }`
           }
         >
@@ -109,11 +111,10 @@ const DesktopMenuItem: React.FC<{ item: MenuItem; depth?: number }> = ({ item, d
         </NavLink>
       ) : (
         <button
-          className={`flex items-center px-4 py-2 text-sm font-medium transition-colors duration-200 ${
-            isActive 
+          className={`flex items-center px-4 py-2 text-sm font-medium transition-colors duration-200 ${isActive
               ? isScrolled ? 'text-primary-600' : 'text-white'
               : isScrolled ? 'text-gray-700 hover:text-primary-600' : 'text-white/90 hover:text-white'
-          }`}
+            }`}
         >
           {item.name}
           <ChevronDown size={14} className={`ml-1 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
@@ -173,19 +174,19 @@ const DesktopMenuItem: React.FC<{ item: MenuItem; depth?: number }> = ({ item, d
   );
 };
 
-const MobileMenuItem: React.FC<{ 
-  item: MenuItem; 
+const MobileMenuItem: React.FC<{
+  item: MenuItem;
   depth?: number;
   onClose: () => void;
 }> = ({ item, depth = 0, onClose }) => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
-  const isActive = item.path === location.pathname || 
-                  (item.children?.some(child => 
-                    child.path === location.pathname || 
-                    child.children?.some(grandchild => grandchild.path === location.pathname)
-                  ));
+  const isActive = item.path === location.pathname ||
+    (item.children?.some(child =>
+      child.path === location.pathname ||
+      child.children?.some(grandchild => grandchild.path === location.pathname)
+    ));
 
   const handleClick = (e: React.MouseEvent) => {
     if (item.children) {
@@ -203,16 +204,15 @@ const MobileMenuItem: React.FC<{
           to={item.path}
           onClick={handleClick}
           className={({ isActive }) =>
-            `flex items-center justify-between py-3 px-4 text-sm font-medium transition-colors duration-200 ${
-              isActive ? 'text-primary-600 bg-primary-50' : 'text-gray-700 hover:bg-gray-50'
+            `flex items-center justify-between py-3 px-4 text-sm font-medium transition-colors duration-200 ${isActive ? 'text-primary-600 bg-primary-50' : 'text-gray-700 hover:bg-gray-50'
             }`
           }
           style={{ paddingLeft: `${depth * 1 + 1}rem` }}
         >
           {item.name}
           {item.children && (
-            <ChevronDown 
-              size={16} 
+            <ChevronDown
+              size={16}
               className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
             />
           )}
@@ -220,14 +220,13 @@ const MobileMenuItem: React.FC<{
       ) : (
         <button
           onClick={handleClick}
-          className={`flex items-center justify-between w-full py-3 px-4 text-sm font-medium transition-colors duration-200 ${
-            isActive ? 'text-primary-600 bg-primary-50' : 'text-gray-700 hover:bg-gray-50'
-          }`}
+          className={`flex items-center justify-between w-full py-3 px-4 text-sm font-medium transition-colors duration-200 ${isActive ? 'text-primary-600 bg-primary-50' : 'text-gray-700 hover:bg-gray-50'
+            }`}
           style={{ paddingLeft: `${depth * 1 + 1}rem` }}
         >
           {item.name}
-          <ChevronDown 
-            size={16} 
+          <ChevronDown
+            size={16}
             className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
           />
         </button>
@@ -243,9 +242,9 @@ const MobileMenuItem: React.FC<{
             className="overflow-hidden bg-gray-50"
           >
             {item.children.map((child, index) => (
-              <MobileMenuItem 
-                key={index} 
-                item={child} 
+              <MobileMenuItem
+                key={index}
+                item={child}
                 depth={depth + 1}
                 onClose={onClose}
               />
@@ -281,20 +280,19 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-md' : 'bg-transparent'
-      }`}
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-md' : 'bg-transparent'
+        }`}
     >
       <div className="container flex items-center justify-between py-4">
         <Link to="/" className="flex items-center space-x-2">
-          <img src="/src/assets/images/logo.svg" alt="Logo Desa Kersik" className="w-10 h-10" />
+          <img src="/public/images/logo.svg" alt="Logo Desa Sindangjaya" className="w-10 h-10" />
           <div>
             <h1 className={`text-lg font-bold ${isScrolled ? 'text-primary-700' : 'text-white'} transition-colors duration-300`}>
-              Desa Kersik
+              Desa Sindangjaya
             </h1>
             <p className={`text-xs ${isScrolled ? 'text-gray-600' : 'text-white/80'} transition-colors duration-300`}>
-              Kabupaten Sambas, Kalimantan Barat
+              Kab. Bandung barat, Kec. Gununghalu
             </p>
           </div>
         </Link>
@@ -328,8 +326,8 @@ const Header: React.FC = () => {
           >
             <nav className="container py-4">
               {navLinks.map((item, index) => (
-                <MobileMenuItem 
-                  key={index} 
+                <MobileMenuItem
+                  key={index}
                   item={item}
                   onClose={handleCloseMenu}
                 />
