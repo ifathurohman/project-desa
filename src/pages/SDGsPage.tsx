@@ -665,7 +665,7 @@ const SDGsPage: React.FC = () => {
                                                 style={{ backgroundColor: `${goal.color}20`, color: goal.color }}
                                             >
                                                 {/* <goal.icon size={24} /> */}
-                                                <img src={`public/images/sdgs/${goal.logo}`} alt="Logo Desa Kersik" className="w-20 h-20" />
+                                                <img src={`images/sdgs/${goal.logo}`} alt="Logo Desa Kersik" className="w-20 h-20" />
                                             </div>
                                             <div>
                                                 <h3 className="font-semibold text-lg">Goal {goal.id}</h3>

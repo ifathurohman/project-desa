@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
           {/* About */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <img src="/public/images/logo.svg" alt="Logo Desa Sindangjaya" className="w-10 h-10" />
+              <img src="images/logo.svg" alt="Logo Desa Sindangjaya" className="w-10 h-10" />
               <h3 className="text-lg font-bold">Desa Sindangjaya</h3>
             </div>
             <p className="text-gray-300 mb-4">
