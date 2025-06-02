@@ -232,7 +232,7 @@ const MobileMenuItem: React.FC<{
         </button>
       )}
 
-      <AnimatePresence>
+      <AnimatePresence mode="sync">
         {item.children && isOpen && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
@@ -315,7 +315,7 @@ const Header: React.FC = () => {
       </div>
 
       {/* Mobile Navigation Menu */}
-      <AnimatePresence>
+      <AnimatePresence mode="sync">
         {isMenuOpen && (
           <motion.div
             className="lg:hidden fixed inset-0 top-[73px] bg-white z-40 overflow-y-auto"

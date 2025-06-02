@@ -106,7 +106,7 @@ const PhotoGallery: React.FC = () => {
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <AnimatePresence>
+          <AnimatePresence mode="sync">
             {filteredItems.map((item, index) => (
               <motion.div
                 key={item.id}
@@ -137,7 +137,7 @@ const PhotoGallery: React.FC = () => {
       )}
 
       {/* Photo Modal */}
-      <AnimatePresence>
+      <AnimatePresence mode="sync">
         {selectedPhoto && (
           <motion.div
             className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"

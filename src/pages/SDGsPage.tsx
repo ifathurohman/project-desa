@@ -443,12 +443,10 @@ const SDGsPage: React.FC = () => {
         }, {} as Record<SDGStatus, number>);
     }, [sdgsUpdate]);
 
-    console.log(statusCounts)
-
     useEffect(() => {
         const fetchSDGsData = async () => {
             try {
-                const response = await axios.get('https://sid.kemendesa.go.id/sdgs/searching/score-sdgs?location_code=3217020002');
+                const response = await axios.get('http://localhost:5000/api/sdgs');
                 const apiData = response.data.data;
 
                 // Merge new scores and status into existing sdgsData
@@ -479,7 +477,7 @@ const SDGsPage: React.FC = () => {
             setLoading(true);
             setError(null);
             try {
-                const response = await axios.get(`https://sid.kemendesa.go.id/sdgs/searching/detail-score-sdgs?location_code=3217020002&goals=${goalId}`);
+                const response = await axios.get(`http://localhost:5000/api/sdgs-detail/${goalId}`);
                 setTargetData(response.data);
             } catch (error) {
                 setError('Failed to fetch target data');
