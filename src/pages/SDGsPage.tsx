@@ -430,6 +430,8 @@ const SDGsPage: React.FC = () => {
     const [targetData, setTargetData] = useState<SDGApiResponse | null>(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
+    const apiUrl = "https://backend-desa-cors.onrender.com";
+    // const apiUrl = "http://localhost:3001";
 
     const averageScore = React.useMemo(() => {
         const total = sdgsUpdate.reduce((sum, goal) => sum + goal.score, 0);
@@ -443,17 +445,18 @@ const SDGsPage: React.FC = () => {
         }, {} as Record<SDGStatus, number>);
     }, [sdgsUpdate]);
 
+    // Fetch summary + detail scores
+    // from api
     useEffect(() => {
         const fetchSDGsData = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/sdgs');
-                const apiData = response.data.data;
+                const response = await axios.get(`${apiUrl}/api/sdgs-score`);
+                const apiData = response.data?.data || [];
 
-                // Merge new scores and status into existing sdgsData
                 const updatedData = sdgsData.map((goal) => {
                     const match = apiData.find((item: any) => item.goals === goal.id);
                     if (match) {
-                        const score = parseFloat(match.score); // ensure it's a number
+                        const score = parseFloat(match.score);
                         return {
                             ...goal,
                             score,
@@ -464,24 +467,65 @@ const SDGsPage: React.FC = () => {
                 });
 
                 setSdgsUpdate(updatedData);
-            } catch (error) {
-                console.error('Failed to fetch or merge SDGs data:', error);
+            } catch (err) {
+                console.error("Failed to fetch SDGs score:", err);
+                setError("Failed to load SDGs score");
             }
         };
 
         fetchSDGsData();
     }, []);
 
+    // // without api
+    // useEffect(() => {
+    //     const fetchSDGsData = async () => {
+    //         try {
+    //             const response = await fetch('/data/sdgs-score.json'); // <-- PUBLIC path
+    //             const apiData = await response.json();
+
+    //             const updatedData = sdgsData.map((goal) => {
+    //                 const match = apiData.data.find((item: any) => item.goals === goal.id);
+    //                 if (match) {
+    //                     const score = parseFloat(match.score);
+    //                     return {
+    //                         ...goal,
+    //                         score,
+    //                         status: getStatusFromScore(score),
+    //                     };
+    //                 }
+    //                 return goal;
+    //             });
+
+    //             setSdgsUpdate(updatedData);
+    //         } catch (err) {
+    //             console.error("Failed to fetch SDGs score:", err);
+    //             setError("Failed to load SDGs score");
+    //         }
+    //     };
+
+    //     fetchSDGsData();
+    // }, []);
+
+
+    // Fetch detail data when goal selected
+    // from api
     useEffect(() => {
         const fetchTargetData = async (goalId: number) => {
             setLoading(true);
             setError(null);
             try {
-                const response = await axios.get(`http://localhost:5000/api/sdgs-detail/${goalId}`);
-                setTargetData(response.data);
-            } catch (error) {
-                setError('Failed to fetch target data');
-                console.error('Error fetching target data:', error);
+                const response = await axios.get(`${apiUrl}/api/sdgs-data`);
+                const detailData = response.data?.[goalId]; // e.g. data["1"], data["2"]
+
+                if (detailData) {
+                    setTargetData(detailData);
+                } else {
+                    setError("No detail data found");
+                    setTargetData(null);
+                }
+            } catch (err) {
+                setError("Failed to fetch detail target data");
+                console.error("Error fetching detail:", err);
             } finally {
                 setLoading(false);
             }
@@ -494,6 +538,38 @@ const SDGsPage: React.FC = () => {
             setError(null);
         }
     }, [selectedGoal]);
+
+    //without api 
+    // useEffect(() => {
+    //     const fetchTargetData = async (goalId: number) => {
+    //         setLoading(true);
+    //         setError(null);
+    //         try {
+    //             const response = await fetch('/data/sdgs-data.json');
+    //             const allData = await response.json();
+    //             const detailData = allData[goalId];
+
+    //             if (detailData) {
+    //                 setTargetData(detailData);
+    //             } else {
+    //                 setError("No detail data found");
+    //                 setTargetData(null);
+    //             }
+    //         } catch (err) {
+    //             setError("Failed to fetch detail target data");
+    //             console.error("Error fetching detail:", err);
+    //         } finally {
+    //             setLoading(false);
+    //         }
+    //     };
+
+    //     if (selectedGoal) {
+    //         fetchTargetData(selectedGoal.id);
+    //     } else {
+    //         setTargetData(null);
+    //         setError(null);
+    //     }
+    // }, [selectedGoal]);
 
     const handleCloseModal = () => {
         setSelectedGoal(null);

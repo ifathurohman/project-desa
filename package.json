@@ -9,6 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "@react-pdf/renderer": "^4.3.0",
     "@tanstack/react-query": "^5.28.4",
