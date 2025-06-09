@@ -22,6 +22,9 @@ import History from './pages/profile/HistoryPage';
 import Officials from './pages/profile/OfficialsPage';
 import Demografi from './pages/profile/DemografiPage';
 import Economy from './pages/profile/EconomyPage';
+import BPD from './pages/profile/BPDPage';
+import NaturalResourcesPage from './pages/profile/NaturalResourcesPage';
+import HumanResourcesPage from './pages/profile/HumanResourcesPage';
 
 import SDGS from './pages/SDGsPage';
 
@@ -44,6 +47,9 @@ function App() {
             <Route path="profile/officials" element={<Officials />} />
             <Route path="profile/demografi" element={<Demografi />} />
             <Route path="profile/economy" element={<Economy />} />
+            <Route path="profile/bpd" element={<BPD />} />
+            <Route path="profile/natural-resources" element={<NaturalResourcesPage />} />
+            <Route path="profile/human-resources" element={<HumanResourcesPage />} />
 
             <Route path="services/dokumen-rpjmdes-sindangjaya" element={<DokumenRPJMDes />} />
             <Route path="services/dokumen-profil-desa-sindangjaya" element={<DokumenPermenATR />} />

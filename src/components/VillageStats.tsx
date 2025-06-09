@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Mountain, Cloud, Map, Shield, Trees as Tree } from 'lucide-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -139,7 +139,15 @@ const categories: StatCategory[] = [
 
 const VillageStats: React.FC = () => {
   const [activeTab, setActiveTab] = useState(0);
-  const [expandedSection, setExpandedSection] = useState<string | null>(null);
+  const [expandedSection, setExpandedSection] = useState(
+    categories[0]?.data[0]?.title ?? null
+  );
+
+  useEffect(() => {
+    const defaultSection = categories[activeTab]?.data[0]?.title ?? null;
+    setExpandedSection(defaultSection);
+  }, [activeTab]);
+
 
   return (
     <section className="section bg-gray-50">
@@ -172,11 +180,10 @@ const VillageStats: React.FC = () => {
                   <SwiperSlide key={category.id} style={{ width: 'auto' }}>
                     <button
                       onClick={() => setActiveTab(index)}
-                      className={`px-6 py-3 flex items-center whitespace-nowrap transition-colors ${
-                        activeTab === index
+                      className={`px-6 py-3 flex items-center whitespace-nowrap transition-colors ${activeTab === index
                           ? 'text-primary-600 border-b-2 border-primary-600'
                           : 'text-gray-600 hover:text-gray-900'
-                      }`}
+                        }`}
                     >
                       <category.icon className="w-5 h-5 mr-2" />
                       <span className="font-medium">{category.title}</span>
@@ -206,9 +213,8 @@ const VillageStats: React.FC = () => {
                       >
                         <span className="font-medium">{section.title}</span>
                         <ChevronDown
-                          className={`w-4 h-4 transition-transform ${
-                            expandedSection === section.title ? 'rotate-180' : ''
-                          }`}
+                          className={`w-4 h-4 transition-transform ${expandedSection === section.title ? 'rotate-180' : ''
+                            }`}
                         />
                       </button>
 
